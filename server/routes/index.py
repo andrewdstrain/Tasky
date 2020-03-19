@@ -3,7 +3,8 @@ from flask import render_template
 
 @app.route('/')
 def hello_world():
-    return app.send_static_file('index.html')
+#    return app.send_static_file('index.html')
+    return "Hello world!"
 
 @app.errorhandler(404)
 @app.route("/error404")
