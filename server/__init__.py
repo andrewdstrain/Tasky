@@ -1,8 +1,10 @@
 import os
+import config
 from flask import Flask, abort, session, request, redirect
 from flask.json import jsonify
 
 app = Flask(__name__, template_folder="../templates", static_folder="../public", static_url_path='')
+app.config.from_object(config.Config)
 
 from server.routes import *
 from server.services import *
