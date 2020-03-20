@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+gunicorn
+ibmcloudenv
+pipenv
+prometheus-client
