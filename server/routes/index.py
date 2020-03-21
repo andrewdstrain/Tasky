@@ -23,7 +23,11 @@ def list_tasks():
             'complete': False
         }
     ]
-    return render_template('list_tasks.html', title='Home', tasks=tasks)
+    return render_template('list_tasks.html', title='List', tasks=tasks)
+    
+@app.route('/new_task')
+def new_task():
+    return render_template('new_task.html', title='New')
 
 
 @app.route('/login', methods=['GET', 'POST'])
