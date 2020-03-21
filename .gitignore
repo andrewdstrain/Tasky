@@ -9,3 +9,4 @@ localdev-config.json
 server/localdev-config.json
 env
 venv/
+tasky.db
