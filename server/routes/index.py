@@ -7,9 +7,11 @@ from server.forms import LoginForm
 def index():
     return redirect(url_for('main_menu'))
 
+
 @app.route('/main_menu')
 def main_menu():
-    return redirect(url_for('list_tasks'))
+    return render_template('main_menu.html', title='Home')
+
 
 @app.route('/list_tasks')
 def list_tasks():
@@ -24,7 +26,8 @@ def list_tasks():
         }
     ]
     return render_template('list_tasks.html', title='List', tasks=tasks)
-    
+
+
 @app.route('/new_task')
 def new_task():
     return render_template('new_task.html', title='New')
