@@ -5,3 +5,4 @@ gunicorn
 ibmcloudenv
 pipenv
 prometheus-client
+sqlalchemy
