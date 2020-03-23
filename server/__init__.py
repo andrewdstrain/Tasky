@@ -25,3 +25,7 @@ if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'tru
     app.debug = True
     server = livereload.Server(app.wsgi_app)
     server.serve(port=os.environ['port'], host=os.environ['host'])
+
+@app.shell_context_processor
+def make_shell_context():
+    return {'db':  db, 'User': user.User, 'Task': task.Task}
