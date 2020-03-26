@@ -1,5 +1,6 @@
 werkzeug
 Flask
+Flask-Login
 Flask-SQLAlchemy
 Flask-WTF
 gunicorn
