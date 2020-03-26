@@ -5,6 +5,13 @@ setup(
     packages=['server'],
     include_package_data=True,
     install_requires=[
-        "flask"
+        "Flask",
+        "Flask-Login",
+        "Flask-SQLAlchemy",
+        "Flask-WTF",
+        "gunicorn",
+        "ibmcloudenv",
+        "pipenv",
+        "prometheus-client"
     ]
 )
