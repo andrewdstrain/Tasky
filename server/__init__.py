@@ -14,10 +14,10 @@ from server.routes import *
 from server.models import *
 from server.services import *
 
-import sqlalchemy as sa
-
-if not sa.inspect(db.engine).get_table_names():
-    db.create_all()
+#import sqlalchemy as sa
+#
+#if not sa.inspect(db.engine).get_table_names():
+#    db.create_all()
 
 initServices(app)
 
