@@ -3,15 +3,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
-class User(UserMixin, db.Model):
+class TaskyUser(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Task', backref='assignedTo', lazy='dynamic')
+    posts = db.relationship('TaskyTask', backref='assignedTo', lazy='dynamic')
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<TaskyUser {}>'.format(self.username)
 
     def set_password(self, password: str):
         self.password_hash = generate_password_hash(password)
