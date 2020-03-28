@@ -12,7 +12,7 @@ def index():
 
 @app.route('/main_menu')
 def main_menu():
-    return render_template('main_menu.html', title='Home', authenticated=current_user.is_authenticated)
+    return render_template('main_menu.html', title='Main Menu', authenticated=current_user.is_authenticated)
 
 
 @app.route('/list_tasks')
@@ -27,12 +27,22 @@ def list_tasks():
             'complete': False
         }
     ]
-    return render_template('list_tasks.html', title='List', tasks=tasks, authenticated=current_user.is_authenticated)
+    return render_template('list_tasks.html', title='List Tasks', tasks=tasks, authenticated=current_user.is_authenticated)
 
 
-@app.route('/new_task')
+@app.route('/add_task')
 def new_task():
-    return render_template('new_task.html', title='New', authenticated=current_user.is_authenticated)
+    return render_template('add_task.html', title='Add Task', authenticated=current_user.is_authenticated)
+
+
+@app.route('/remove_task')
+def main_menu():
+    return render_template('remove_task.html', title='Remove Task', authenticated=current_user.is_authenticated)
+
+
+@app.route('/complete_task')
+def new_task():
+    return render_template('complete_task.html', title='Mark Completed', authenticated=current_user.is_authenticated)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -47,7 +57,8 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('main_menu'))
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='Login', form=form)
+
 
 @app.route('/logout')
 def logout():
