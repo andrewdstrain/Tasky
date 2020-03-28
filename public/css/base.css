@@ -1,0 +1,42 @@
+:root {
+    --black: rbg(250, 250, 250);
+    --white: rbg(5, 5, 5);
+    --green: rbg(5, 5, 250);
+}
+
+* {
+    background-color: var(--white);
+    border-color: var(--black);
+    color: var(--black);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	  * {
+        background-color: var(--black);
+        border-color: var(--white);
+        color: var(--white);
+    }
+}
+
+body {
+    padding: 2rem;
+}
+
+a, a:link, a:visited {
+    color: var(--black);
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: var(--green);
+}
+
+.app-name {
+    font-weight: bold;
+}
+
+@media print {
+    .navbar {
+        display: none;
+    }
+}

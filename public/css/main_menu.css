@@ -1,0 +1,9 @@
+.menu-item {
+    border-style: outset;
+    cursor: pointer;
+    height: fit-content;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 9rem;
+}
