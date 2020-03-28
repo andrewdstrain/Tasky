@@ -10,11 +10,13 @@
 </head>
 <body>
 <div class="navbar">
-    Tasky:
-    <a href="{{ url_for('main_menu') }}">Home</a>
-    <a href="{{ url_for('list_tasks') }}">List</a>
-    <a href="{{ url_for('new_task') }}">New</a>
-    <a href="{{ url_for('login') }}">Login</a>
+    <strong>Tasky</strong>:
+    <a href="{{ url_for('main_menu') }}">Home</a> &bull;
+    {% if authenticated %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+    {% endif %}
 </div>
 <hr>
 

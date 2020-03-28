@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
 from server import app
 from server.forms import LoginForm
 from server.models.taskyuser import TaskyUser
@@ -12,7 +12,7 @@ def index():
 
 @app.route('/main_menu')
 def main_menu():
-    return render_template('main_menu.html', title='Home')
+    return render_template('main_menu.html', title='Home', authenticated=current_user.is_authenticated)
 
 
 @app.route('/list_tasks')
@@ -27,12 +27,12 @@ def list_tasks():
             'complete': False
         }
     ]
-    return render_template('list_tasks.html', title='List', tasks=tasks)
+    return render_template('list_tasks.html', title='List', tasks=tasks, authenticated=current_user.is_authenticated)
 
 
 @app.route('/new_task')
 def new_task():
-    return render_template('new_task.html', title='New')
+    return render_template('new_task.html', title='New', authenticated=current_user.is_authenticated)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -48,6 +48,11 @@ def login():
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('main_menu'))
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main_menu'))
 
 
 @app.errorhandler(404)
