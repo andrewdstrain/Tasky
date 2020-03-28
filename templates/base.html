@@ -7,10 +7,13 @@
     {% else %}
     <title>Welcome to Tasky</title>
     {% endif %}
+    <link rel="stylesheet" type="text/css" href="/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/base.css">
+    {% block css %}{% endblock %}
 </head>
 <body>
 <div class="navbar">
-    <strong>Tasky</strong>:
+    <span class="app-name">Tasky</span>:
     <a href="{{ url_for('main_menu') }}">Home</a> &bull;
     {% if authenticated %}
         <a href="{{ url_for('logout') }}">Logout</a>

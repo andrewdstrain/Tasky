@@ -1,0 +1,22 @@
+:root {
+    --black: rbg(250, 250, 250);
+    --white: rbg(0, 0, 0);
+    --link-highlight: green;
+}
+
+body {
+    padding: 2rem;
+}
+
+a, a:link, a:visited {
+    color: var(--black);
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: var(--link-highlight);
+}
+
+.app-name {
+    font-weight: bold;
+}
