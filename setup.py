@@ -10,7 +10,7 @@ setup(
         "Flask-SQLAlchemy",
         "Flask-WTF",
         "gunicorn",
-	"ibm-db-sa",
+        "ibm-db-sa",
         "ibmcloudenv",
         "pipenv",
         "prometheus-client"
