@@ -14,10 +14,10 @@ from server.routes import *
 from server.models import *
 from server.services import *
 
-import sqlalchemy as sa
-
-if not sa.inspect(db.engine).get_table_names():
-    db.create_all()
+#import sqlalchemy as sa
+#
+#if not sa.inspect(db.engine).get_table_names():
+#    db.create_all()
 
 initServices(app)
 
@@ -30,4 +30,4 @@ if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'tru
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db':  db, 'TaskyUser': taskyuser.TaskyUser, 'TaskyTask': taskytask.TaskyTask, 'login': login}
+    return {'db':  db, 'User': user.User, 'Task': task.Task}

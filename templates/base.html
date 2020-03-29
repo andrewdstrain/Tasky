@@ -7,19 +7,14 @@
     {% else %}
     <title>Welcome to Tasky</title>
     {% endif %}
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-    {% block css %}{% endblock %}
 </head>
 <body>
 <div class="navbar">
-    <span class="app-name">Tasky</span>:
-    <a href="{{ url_for('main_menu') }}">Home</a> &bull;
-    {% if authenticated %}
-        <a href="{{ url_for('logout') }}">Logout</a>
-    {% else %}
-        <a href="{{ url_for('login') }}">Login</a>
-    {% endif %}
+    Tasky:
+    <a href="{{ url_for('main_menu') }}">Home</a>
+    <a href="{{ url_for('list_tasks') }}">List</a>
+    <a href="{{ url_for('new_task') }}">New</a>
+    <a href="{{ url_for('login') }}">Login</a>
 </div>
 <hr>
 

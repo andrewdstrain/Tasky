@@ -1,7 +1,7 @@
 """Config"""
 
 from os import environ
-from os.path import dirname, basename, isfile, abspath
+from os.path import dirname, basename, isfile, join, abspath
 import glob
 
 modules = glob.glob(dirname(__file__) + "/*.py")
@@ -12,5 +12,5 @@ basedir = abspath(dirname(__file__))
 
 class Config(object):
     SECRET_KEY = environ.get('SECRET_KEY') or 'your-key-goes-here'
-    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') or 'sqlite:///../tasky.db'
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') or 'sqlite:///' + join(basedir, 'tasky.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
