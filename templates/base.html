@@ -16,8 +16,8 @@
     <span class="app-name">Tasky</span>:
     <a href="{{ url_for('main_menu') }}">Home</a> &bull;
     <a href="{{ url_for('logout') }}">Log Out</a>
+    <hr>
 </div>
-<hr>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
