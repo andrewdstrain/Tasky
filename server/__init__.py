@@ -30,4 +30,4 @@ if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'tru
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db':  db, 'User': user.User, 'Task': task.Task}
+    return {'db':  db, 'User': taskyuser.TaskyUser, 'Task': taskytask.TaskyTask}
