@@ -7,6 +7,6 @@ server/localdev-config.json
 credentials.json
 localdev-config.json
 server/localdev-config.json
-env
+env.sh
 venv/
 tasky.db
