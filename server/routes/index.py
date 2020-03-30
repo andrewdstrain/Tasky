@@ -17,23 +17,6 @@ def main_menu():
     return render_template('main_menu.html', authenticated=True)
 
 
-@app.route('/list_tasks')
-def list_tasks():
-    if not current_user.is_authenticated:
-        return redirect(url_for('login'))
-    tasks = [
-        {
-            'name': 'Do the dishes',
-            'complete': True
-        },
-        {
-            'name': 'Wash car',
-            'complete': False
-        }
-    ]
-    return render_template('list_tasks.html', title='List Tasks', tasks=tasks, authenticated=True)
-
-
 @app.route('/add_task')
 def add_task():
     if not current_user.is_authenticated:
@@ -53,6 +36,23 @@ def complete_task():
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     return render_template('complete_task.html', title='Complete Task', authenticated=True)
+
+
+@app.route('/list_tasks')
+def list_tasks():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    tasks = [
+        {
+            'name': 'Do the dishes',
+            'complete': True
+        },
+        {
+            'name': 'Wash car',
+            'complete': False
+        }
+    ]
+    return render_template('list_tasks.html', title='List Tasks', tasks=tasks, authenticated=True)
 
 
 @app.route('/login', methods=['GET', 'POST'])
