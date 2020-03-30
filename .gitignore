@@ -1,11 +1,9 @@
 .DS_Store
+.env
+.ibm-project
 .idea/
 *.pyc
 *.egg-info
-server/localdev-config.json
 credentials.json
-localdev-config.json
-server/localdev-config.json
-.env
-venv/
 tasky.db
+venv/
