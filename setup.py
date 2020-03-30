@@ -13,6 +13,7 @@ setup(
         "ibm-db-sa",
         "ibmcloudenv",
         "pipenv",
-        "prometheus-client"
+        "prometheus-client",
+        "python-dotenv"
     ]
 )

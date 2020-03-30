@@ -11,6 +11,6 @@ basedir = abspath(dirname(__file__))
 
 
 class Config(object):
-    SECRET_KEY = environ.get('SECRET_KEY') or 'abc012def345ghi678jkl9AB'
-    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') or 'sqlite:///' + join(basedir, 'tasky.db')
+    SECRET_KEY = environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
