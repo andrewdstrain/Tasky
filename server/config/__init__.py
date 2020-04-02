@@ -9,6 +9,6 @@ __all__ = [basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('__
 
 
 class Config(object):
-    SECRET_KEY = environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
+    SECRET_KEY = environ.get('SECRET_KEY', 'abc012def345ghi678jkl9AB')
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL', 'sqlite:///../tasky.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
