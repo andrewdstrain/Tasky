@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
     <title>{{ title }} - Tasky</title>
     {% else %}
     <title>Welcome to Tasky</title>
     {% endif %}
-     <link rel="stylesheet" type="text/css" href="css/normalize.css">
-     <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/colors.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
     {% block css %}{% endblock %}
 </head>
 <body>
 <div class="navbar">
     <span class="app-name">Tasky</span>:
     <a href="{{ url_for('main_menu') }}">Home</a>
-    {% if authenticated %}
+    {% if not current_user.is_anonymous %}
          &bull; <a href="{{ url_for('logout') }}">Log Out</a>
     {% endif %}
     <hr>

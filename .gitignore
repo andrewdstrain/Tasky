@@ -1,9 +1,11 @@
 .DS_Store
 .env
+.vscode/
 .ibm-project
 .idea/
-*.pyc
+*.code-workspace
 *.egg-info
+*.pyc
 credentials.json
 tasky.db
 venv/

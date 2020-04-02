@@ -9,6 +9,7 @@ app = Flask(__name__, template_folder="../templates", static_folder="../public",
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 login = LoginManager(app)
+login.login_view = 'login'
 
 from server.routes import *
 from server.models import *
@@ -28,6 +29,7 @@ if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'tru
     server = livereload.Server(app.wsgi_app)
     server.serve(port=os.environ['port'], host=os.environ['host'])
 
+
 @app.shell_context_processor
 def make_shell_context():
-    return {'db':  db, 'User': taskyuser.TaskyUser, 'Task': taskytask.TaskyTask}
+    return {'db':  db, 'User': taskyuser.TaskyUser, 'Task': taskytask.TaskyTask, 'login': login}

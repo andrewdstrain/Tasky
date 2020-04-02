@@ -1,0 +1,18 @@
+{% extends "base.html.j2" %}
+
+{% block css %}<link rel="stylesheet" type="text/css" href="css/add_task.css">{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.task_text.label }}
+        {{ form.task_text(size=140) }}
+        {% for error in form.task_text.errors %}
+        <span class="form-error">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

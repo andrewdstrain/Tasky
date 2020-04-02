@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+{% extends "base.html.j2" %}
 
 {% block content %}
-    <h1>Task List</h1>
+    <h1>{{ title }}</h1>
     <ul class="tasklist">
     {% for task in tasks %}
-        <li class="task">{{ task.name }}
+        <li class="task">{{ task.task }}
             {% if task.complete %}
             - (COMPLETED)
             {% endif %}

@@ -1,0 +1,42 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span class="form-error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <p>New User? <a href="{{ url_for('signup') }}">Click to Signup!</a></p>
+
+    <hr>
+    <div id="description">
+        <h1>Tasky</h1>
+        <p>Tasky is a task managing web app. It is based on the final project for the
+        <em>Programming Foundations Java</em> class at Woz U. It's a
+        simple example of a CRUD application. It uses <a href="https://python.org/" target="_blank">Python 3</a>
+        along with <a href="https://www.fullstackpython.com/flask.html" target="_blank">Flask</a>
+        (using <a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a>) to get everything done. A demo of the app is
+        located on the <a href="https://www.ibm.com/services/cloud" target="_blank">IBM Cloud</a> using <a href="https://www.ibm.com/cloud/db2-on-cloud/" target="_blank">DB2</a>
+        as the database. You can find it <a href="https://taskyapp2.mybluemix.net/" target="_blank">here</a>.</p>
+        <p>Tasky is just a school project. It doesn't use cookies nor does
+        it collect or sell any personal data. If you don't want to sign up,
+        just use the <strong>Demo</strong> account. As typical, both username and password are
+        the word <em>demo</em>.</p>
+        <p>Enjoy!</p>
+    </div>
+{% endblock %}
