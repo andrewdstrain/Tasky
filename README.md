@@ -1,3 +1,85 @@
+# Tasky
+Tasky is a simple task manager. Since it was originally written to be run on
+the IBM Cloud, there's a bit more to it than the actual Flask based code.
+Below, is a list of everything that I (Andy Strain) wrote or modified:
+
+1.  The upper part of the README.md (this) file.
+2.  `default-dotenv` - to be copied to `.env` and modified appropriately.
+    Proper defaults will be used in the absence of the `.env` file.
+3.  `env.sh` - a shell script written to push the environmental variables to the
+    IBM Cloud.
+4.  `public/css/` - all of the CSS files.
+5.  `public/javascript` - the jQuery file was simply downloaded. The
+    `main_menu.js` file is new.
+6.  `requirements.txt` - the list of Python 3 packages that are needed to run
+    the server locally and/or deploy to the IBM Cloud.
+7.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and
+    tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.
+8.  `server/config/__init__.py` - The Config object that sets the
+    environmental variables or sane defaults.
+9.  `server/forms/` - all of the forms
+10.  `server/models/` - all of the models
+11. `server/routes/index.py` - all of the Flask URL routes
+12. `setup.py` - add the install requirements 
+
+## Getting Started
+First, be sure that Python 3 is installed. If not, be sure and install it now.
+
+Next, make a virtual environment for Python 3:
+
+```shell script
+python3 -m venv venv
+```
+
+Invoke the virtual environment:
+
+```shell script
+source venv/bin/activate
+```
+
+Then install the packages needed to run Tasky:
+
+```shell script
+python -m pip install -r requirements.txt
+```
+
+Optional: copy the `default-dotenv` file to `.env` and change the SECRET_KEY and/or
+DATABASE_URL to whatever values needed. By default, SQLite is used for the
+database.
+
+Finally, run the local Tasky server:
+
+```shell script
+python manage.py run
+```
+
+## Other Things ...
+### Flask Shell
+You can play around with the database by running the Flask shell:
+
+```shell script
+flask shell
+```
+
+For this to work, the `.env` file must be in place OR you can set the
+environmental variables before running the command.
+
+The `app`, `db`, and
+`login` variables are already setup as are the `TaskyUser` and `TaskyTask`
+classes. This saves a bit of work when working with the Python interpreter.
+
+### Windows 10
+Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian
+10.3 (Buster). While it will run on Windows 10, a few of the instructions,
+above, are different.
+
+If you want to try it out on Debian 10, you can get the
+[image](https://www.osboxes.org/debian/) and run it on
+[VirtualBox](https://www.virtualbox.org/). However, the differences, above,
+are minimal and Tasky will run just fine on Windows 10.
+
+----
+
 <p align="center">
     <a href="https://cloud.ibm.com">
         <img src="https://my1.digitalexperience.ibm.com/8304c341-f896-4e04-add0-0a9ae02473ba/dxdam/2d/2d559197-6763-4e47-a2cb-8f54c449ff26/ibm-cloud.svg" height="100" alt="IBM Cloud">
