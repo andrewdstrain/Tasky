@@ -4,6 +4,9 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
+    """
+    A Flask form for the user to sign in
+    """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
