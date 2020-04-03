@@ -15,10 +15,10 @@ Below, is a list of everything that I (Andy Strain) wrote or modified:
     the server locally and/or deploy to the IBM Cloud.
 7.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and
     tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.
-8.  `server/config/__init__.py` - The Config object that sets the
+8.  `server/config/__init__.py` - The Config object that gets the
     environmental variables or sane defaults.
 9.  `server/forms/` - all of the forms
-10.  `server/models/` - all of the models
+10. `server/models/` - all of the models
 11. `server/routes/index.py` - all of the Flask URL routes
 12. `setup.py` - add the install requirements 
 
@@ -43,9 +43,9 @@ Then install the packages needed to run Tasky:
 python -m pip install -r requirements.txt
 ```
 
-Optional: copy the `default-dotenv` file to `.env` and change the SECRET_KEY and/or
-DATABASE_URL to whatever values needed. By default, SQLite is used for the
-database.
+Optional: copy the `default-dotenv` file to `.env` and change the SECRET_KEY
+and/or DATABASE_URL to whatever values needed. By default, SQLite is used for
+the database.
 
 Finally, run the local Tasky server:
 
@@ -64,19 +64,19 @@ flask shell
 For this to work, the `.env` file must be in place OR you can set the
 environmental variables before running the command.
 
-The `app`, `db`, and
-`login` variables are already setup as are the `TaskyUser` and `TaskyTask`
-classes. This saves a bit of work when working with the Python interpreter.
+The `app`, `db`, and `login` variables are already setup as are the `TaskyUser`
+and `TaskyTask` classes. This saves a bit of work when working with the Python
+interpreter.
 
 ### Windows 10
 Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian
-10.3 (Buster). While it will run on Windows 10, a few of the instructions,
-above, are different.
+10.3 (Buster). I was not able to get it to work on Windows 10 because pip
+would not install the `distutils` package. It might work using
+[cygwin](https://www.cygwin.com/) but I haven't tried it.
 
 If you want to try it out on Debian 10, you can get the
 [image](https://www.osboxes.org/debian/) and run it on
-[VirtualBox](https://www.virtualbox.org/). However, the differences, above,
-are minimal and Tasky will run just fine on Windows 10.
+[VirtualBox](https://www.virtualbox.org/).
 
 ----
 
