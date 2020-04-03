@@ -8,3 +8,15 @@ $(function() {
         window.location.assign($(this).attr("id"));
     });
 });
+
+$(document).keydown(function(event) {
+    if (event.which === 67) {
+        window.location.replace("add_task");
+    } else if (event.which === 82) {
+        window.location.replace("list_tasks");
+    } else if (event.which === 85) {
+        window.location.replace("complete_task");
+    } else if (event.which === 68) {
+        window.location.replace("remove_task");
+    }
+});
