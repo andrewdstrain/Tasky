@@ -6,6 +6,10 @@
 *.code-workspace
 *.egg-info
 *.pyc
+Makefile
+build/
 credentials.json
+make.bat
+source/
 tasky.db
 venv/
