@@ -8,6 +8,7 @@ from server.forms.complete_task import CompleteTaskForm
 from server.forms.login import LoginForm
 from server.forms.remove_task import RemoveTaskForm
 from server.forms.signup import SignupForm
+from server.forms.signup_recaptcha import SignupRecaptchaForm
 from server.models.taskyuser import TaskyUser
 from server.models.taskytask import TaskyTask
 
@@ -153,7 +154,7 @@ def signup():
     """
     if current_user.is_authenticated:
         return redirect(url_for('main_menu'))
-    recaptcha = app.config.RECAPTCHA_PRIVATE_KEY != None
+    recaptcha = app.config['RECAPTCHA_PRIVATE_KEY'] != None
     if recaptcha:
         form = SignupRecaptchaForm()
     else:
