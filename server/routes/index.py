@@ -153,7 +153,12 @@ def signup():
     """
     if current_user.is_authenticated:
         return redirect(url_for('main_menu'))
-    form = SignupForm()
+    recaptcha = app.config.RECAPTCHA_PRIVATE_KEY != None
+    if recaptcha:
+        form = SignupRecaptchaForm()
+    else:
+        form = SignupForm()
+    
     if form.validate_on_submit():
         user = TaskyUser()
         user.username = form.username.data
@@ -162,7 +167,7 @@ def signup():
         db.session.commit()
         flash('Congratulations, you are now a new user!')
         return redirect(url_for('login'))
-    return render_template('signup.html.j2', title='Signup', form=form)
+    return render_template('signup.html.j2', title='Signup', form=form, recaptcha=recaptcha)
 
 
 @app.errorhandler(404)

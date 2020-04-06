@@ -25,6 +25,11 @@
         <span class="form-error">[{{ error }}]</span>
         {% endfor %}
     </p>
+    
+    {% if recaptcha %}
+        <p>{{ form.recaptcha }}</p>
+    {% endif %}
+    
     <p>{{ form.submit() }}</p>
 </form>
 {% endblock %}

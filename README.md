@@ -4,23 +4,24 @@ the IBM Cloud, there's a bit more to it than the actual Flask based code.
 Below, is a list of everything that I (Andy Strain) wrote or modified:
 
 1.  The upper part of the README.md (this) file.
-2.  `default-dotenv` - to be copied to `.env` and modified appropriately.
+2.  `dotenv-default` - to be copied to `.env` and modified appropriately.
     Proper defaults will be used in the absence of the `.env` file.
-3.  `env.sh` - a shell script written to push the environmental variables to the
+3.  `dotenv-recaptcha` - to be copied and modified to `.env` for Google reCAPTCH v2.
+4.  `env.sh` - a shell script written to push the environmental variables to the
     IBM Cloud.
-4.  `public/css/` - all of the CSS files.
-5.  `public/javascript` - the jQuery file was simply downloaded. The
+5.  `public/css/` - all of the CSS files.
+6.  `public/javascript` - the jQuery file was simply downloaded. The
     `main_menu.js` file is new.
-6.  `requirements.txt` - the list of Python 3 packages that are needed to run
+7.  `requirements.txt` - the list of Python 3 packages that are needed to run
     the server locally and/or deploy to the IBM Cloud.
-7.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and
+8.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and
     tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.
-8.  `server/config/__init__.py` - The Config object that gets the
+9.  `server/config/__init__.py` - The Config object that gets the
     environmental variables or sane defaults.
-9.  `server/forms/` - all of the forms
-10. `server/models/` - all of the models
-11. `server/routes/index.py` - all of the Flask URL routes
-12. `setup.py` - add the install requirements 
+10.  `server/forms/` - all of the forms
+11. `server/models/` - all of the models
+12. `server/routes/index.py` - all of the Flask URL routes
+13. `setup.py` - add the install requirements 
 
 ## Getting Started
 First, be sure that Python 3 is installed. If not, be sure and install it now.
