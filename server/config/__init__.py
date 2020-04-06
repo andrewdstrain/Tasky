@@ -25,6 +25,6 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL', 'sqlite:///../tasky.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     RECAPTCHA_USE_SSL = environ.get('RECAPTCHA_USE_SSL', False)
-    RECAPTCHA_PUBLIC_KEY = .environ.get('RECAPTCHA_PUBLIC_KEY')
+    RECAPTCHA_PUBLIC_KEY = environ.get('RECAPTCHA_PUBLIC_KEY')
     RECAPTCHA_PRIVATE_KEY = environ.get('RECAPTCHA_PRIVATE_KEY')
     RECAPTCHA_OPTIONS = {}
