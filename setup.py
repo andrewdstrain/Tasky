@@ -12,7 +12,6 @@ setup(
         "gunicorn",
         "ibm-db-sa",
         "ibmcloudenv",
-        "pipenv",
         "prometheus-client",
         "python-dotenv"
     ]
