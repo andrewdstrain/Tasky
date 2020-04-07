@@ -6,7 +6,7 @@
     {{ form.hidden_tag() }}
     <p>
         {{ form.task_id.label }}
-        {{ form.task_id }}
+        {{ form.task_id(autofocus=True) }}
         {% for error in form.task_id.errors %}
         <span class="form-error">[{{ error }}]</span>
         {% endfor %}
