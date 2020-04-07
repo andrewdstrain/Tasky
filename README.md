@@ -4,21 +4,15 @@ the IBM Cloud, there's a bit more to it than the actual Flask based code.
 Below, is a list of everything that I (Andy Strain) wrote or modified:
 
 1.  The upper part of the README.md (this) file.
-2.  `dotenv-default` - to be copied to `.env` and modified appropriately.
-    Proper defaults will be used in the absence of the `.env` file.
+2.  `dotenv-default` - to be copied to `.env` and modified appropriately. Proper defaults will be used in the absence of the `.env` file.
 3.  `dotenv-recaptcha` - to be copied and modified to `.env` for Google reCAPTCH v2.
-4.  `env.sh` - a shell script written to push the environmental variables to the
-    IBM Cloud.
+4.  `env.sh` - a shell script written to push the environmental variables to the IBM Cloud.
 5.  `public/css/` - all of the CSS files.
-6.  `public/javascript` - the jQuery file was simply downloaded. The
-    `main_menu.js` file is new.
-7.  `requirements.txt` - the list of Python 3 packages that are needed to run
-    the server locally and/or deploy to the IBM Cloud.
-8.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and
-    tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.
-9.  `server/config/__init__.py` - The Config object that gets the
-    environmental variables or sane defaults.
-10.  `server/forms/` - all of the forms
+6.  `public/javascript` - the jQuery file was simply downloaded. The `base.js` and `main_menu.js` file is new.
+7.  `requirements.txt` - the list of Python 3 packages that are needed to run the server locally and/or deploy to the IBM Cloud.
+8.  `runtime.txt` - use Python 3.8, not 3.6 - however, it was developed and tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.
+9.  `server/config/__init__.py` - The Config object that gets the environmental variables or sane defaults.
+10. `server/forms/` - all of the forms
 11. `server/models/` - all of the models
 12. `server/routes/index.py` - all of the Flask URL routes
 13. `setup.py` - add the install requirements 
@@ -44,9 +38,7 @@ Then install the packages needed to run Tasky:
 python -m pip install -r requirements.txt
 ```
 
-Optional: copy the `default-dotenv` file to `.env` and change the SECRET_KEY
-and/or DATABASE_URL to whatever values needed. By default, SQLite is used for
-the database.
+Copy the `dotenv-default` file to `.env` and change the `SECRET_KEY` variable to something unique for your Tasky app.
 
 Finally, run the local Tasky server:
 
@@ -55,6 +47,12 @@ python manage.py run
 ```
 
 ## Other Things ...
+### Other Databases
+By default, Tasky uses the SQLite3 database. Using another database is pretty easy. Do the following steps:
+
+1. Install the SQLAlchemy version of your database driver.
+2. In the `.env` file, change the environment variable `DATABASE_URL` to the new connection URL.
+
 ### Flask Shell
 You can play around with the database by running the Flask shell:
 
@@ -62,22 +60,23 @@ You can play around with the database by running the Flask shell:
 flask shell
 ```
 
-For this to work, the `.env` file must be in place OR you can set the
-environmental variables before running the command.
+For this to work, the `.env` file must be in place OR you can set the environmental variables before running the command.
 
-The `app`, `db`, and `login` variables are already setup as are the `TaskyUser`
-and `TaskyTask` classes. This saves a bit of work when working with the Python
-interpreter.
+The `app`, `db`, and `login` variables are already setup as are the `TaskyUser` and `TaskyTask` classes. This saves a bit of work when working with the Python interpreter.
+
+### Google reCAPTCHA v2
+Tasky supports using a reCHAPCHA on the signup page. Follow these steps to set it up:
+
+1. Sign up for the [Google reCAPTCHA v2](http://www.google.com/recaptcha/admin).
+2. Copy the contents of the `dotenv-recaptcha` file and paste them into the `.env` file.
+3. Change the `RECAPTCHA_PUBLIC_KEY` variable to your public key.
+4. Change the `RECAPTCHA_PRIVATE_KEY` variable to your private key.
+5. If you want to use SSL, change the `RECAPTCHA_USE_SSL` variable to True.
 
 ### Windows 10
-Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian
-10.3 (Buster). I was not able to get it to work on Windows 10 because pip
-would not install the `distutils` package. It might work using
-[cygwin](https://www.cygwin.com/) but I haven't tried it.
+Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian 10.3 (Buster). I was not able to get it to work on Windows 10 because pip would not install the `distutils` package. It might work using [cygwin](https://www.cygwin.com/) but I haven't tried it.
 
-If you want to try it out on Debian 10, you can get the
-[image](https://www.osboxes.org/debian/) and run it on
-[VirtualBox](https://www.virtualbox.org/).
+If you want to try it out on Debian 10, you can get the [image](https://www.osboxes.org/debian/) and run it on [VirtualBox](https://www.virtualbox.org/).
 
 ----
 
