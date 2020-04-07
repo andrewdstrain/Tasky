@@ -1,7 +1,4 @@
 body {
-    background-color: var(--white);
-    border-color: var(--black);
-    color: var(--black);
     padding: 2rem;
 }
 
