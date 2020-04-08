@@ -4,16 +4,28 @@ Tasky is a simple task manager. It was originally written to be run on the IBM C
 ## Getting Started
 First, be sure that Python 3 is installed. If not, be sure and install it now.
 
-Next, make a virtual environment for Python 3:
+Next, make a virtual environment for Python 3 (macOS/Linux/UNIX):
 
 ```shell script
 python3 -m venv venv
 ```
 
-Invoke the virtual environment:
+On Windows 10:
+
+```shell script
+python -m venv venv
+```
+
+Invoke the virtual environment (macOS/Linux/UNIX):
 
 ```shell script
 source venv/bin/activate
+```
+
+On Windows 10:
+
+```shell script
+venv\Scripts\activate.bat
 ```
 
 Then install the packages needed to run Tasky:
@@ -56,8 +68,3 @@ Tasky supports using a reCHAPCHA on the signup page. Follow these steps to set i
 3. Change the `RECAPTCHA_PUBLIC_KEY` variable to your public key.
 4. Change the `RECAPTCHA_PRIVATE_KEY` variable to your private key.
 5. If you want to use SSL, change the `RECAPTCHA_USE_SSL` variable to True.
-
-### Windows 10
-Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian 10.3 (Buster). I was not able to get it to work on Windows 10 because pip would not install the `distutils` package. It might work using [cygwin](https://www.cygwin.com/) but I haven't tried it.
-
-If you want to try it out on Debian 10, you can get the [image](https://www.osboxes.org/debian/) and run it on [VirtualBox](https://www.virtualbox.org/).
