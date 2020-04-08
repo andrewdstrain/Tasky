@@ -1,61 +1,44 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><title>README.md</title><style></style></head><body id="preview">
 <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Tasky_0"></a>Tasky</h1>
-<p class="has-line-data" data-line-start="1" data-line-end="4">Tasky is a simple task manager. Since it was originally written to be run on<br>
-the IBM Cloud, there’s a bit more to it than the actual Flask based code.<br>
-Below, is a list of everything that I (Andy Strain) wrote or modified:</p>
+<p class="has-line-data" data-line-start="1" data-line-end="2">Tasky is a simple task manager. It was originally written to be run on the IBM Cloud, but this version has all of the IBM Cloud code removed.</p>
+<h2 class="code-line" data-line-start=3 data-line-end=4><a id="Getting_Started_3"></a>Getting Started</h2>
+<p class="has-line-data" data-line-start="4" data-line-end="5">First, be sure that Python 3 is installed. If not, be sure and install it now.</p>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Next, make a virtual environment for Python 3:</p>
+<pre><code class="has-line-data" data-line-start="9" data-line-end="11" class="language-shell">python3 -m venv venv
+</code></pre>
+<p class="has-line-data" data-line-start="12" data-line-end="13">Invoke the virtual environment:</p>
+<pre><code class="has-line-data" data-line-start="15" data-line-end="17" class="language-shell">source venv/bin/activate
+</code></pre>
+<p class="has-line-data" data-line-start="18" data-line-end="19">Then install the packages needed to run Tasky:</p>
+<pre><code class="has-line-data" data-line-start="21" data-line-end="23" class="language-shell">python -m pip install -r requirements.txt
+</code></pre>
+<p class="has-line-data" data-line-start="24" data-line-end="25">Copy the <code>dotenv-default</code> file to <code>.env</code> and change the <code>SECRET_KEY</code> variable to something unique for your Tasky app.</p>
+<p class="has-line-data" data-line-start="26" data-line-end="27">Finally, run the local Tasky server:</p>
+<pre><code class="has-line-data" data-line-start="29" data-line-end="31" class="language-shell">python manage.py run
+</code></pre>
+<h2 class="code-line" data-line-start=32 data-line-end=33><a id="Other_Things__32"></a>Other Things …</h2>
+<h3 class="code-line" data-line-start=33 data-line-end=34><a id="Other_Databases_33"></a>Other Databases</h3>
+<p class="has-line-data" data-line-start="34" data-line-end="35">By default, Tasky uses the SQLite3 database. Using another database is pretty easy. Do the following steps:</p>
 <ol>
-<li class="has-line-data" data-line-start="5" data-line-end="6">The upper part of the <a href="http://README.md">README.md</a> (this) file.</li>
-<li class="has-line-data" data-line-start="6" data-line-end="7"><code>dotenv-default</code> - to be copied to <code>.env</code> and modified appropriately. Proper defaults will be used in the absence of the <code>.env</code> file.</li>
-<li class="has-line-data" data-line-start="7" data-line-end="8"><code>dotenv-recaptcha</code> - to be copied and modified to <code>.env</code> for Google reCAPTCH v2.</li>
-<li class="has-line-data" data-line-start="8" data-line-end="9"><code>env.sh</code> - a shell script written to push the environmental variables to the IBM Cloud.</li>
-<li class="has-line-data" data-line-start="9" data-line-end="10"><code>public/css/</code> - all of the CSS files.</li>
-<li class="has-line-data" data-line-start="10" data-line-end="11"><code>public/javascript</code> - the jQuery file was simply downloaded. The <code>base.js</code> and <code>main_menu.js</code> file is new.</li>
-<li class="has-line-data" data-line-start="11" data-line-end="12"><code>requirements.txt</code> - the list of Python 3 packages that are needed to run the server locally and/or deploy to the IBM Cloud.</li>
-<li class="has-line-data" data-line-start="12" data-line-end="13"><code>runtime.txt</code> - use Python 3.8, not 3.6 - however, it was developed and tested on 3.7.3, the default Python on macOS 10.15 and Debian 10.3.</li>
-<li class="has-line-data" data-line-start="13" data-line-end="14"><code>server/config/__init__.py</code> - The Config object that gets the environmental variables or sane defaults.</li>
-<li class="has-line-data" data-line-start="14" data-line-end="15"><code>server/forms/</code> - all of the forms</li>
-<li class="has-line-data" data-line-start="15" data-line-end="16"><code>server/models/</code> - all of the models</li>
-<li class="has-line-data" data-line-start="16" data-line-end="17"><code>server/routes/index.py</code> - all of the Flask URL routes</li>
-<li class="has-line-data" data-line-start="17" data-line-end="19"><code>setup.py</code> - add the install requirements</li>
+<li class="has-line-data" data-line-start="36" data-line-end="37">Install the SQLAlchemy version of your database driver.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="39">In the <code>.env</code> file, change the environment variable <code>DATABASE_URL</code> to the new connection URL.</li>
 </ol>
-<h2 class="code-line" data-line-start=19 data-line-end=20><a id="Getting_Started_19"></a>Getting Started</h2>
-<p class="has-line-data" data-line-start="20" data-line-end="21">First, be sure that Python 3 is installed. If not, be sure and install it now.</p>
-<p class="has-line-data" data-line-start="22" data-line-end="23">Next, make a virtual environment for Python 3:</p>
-<pre><code class="has-line-data" data-line-start="25" data-line-end="27" class="language-shell">python3 -m venv venv
+<h3 class="code-line" data-line-start=39 data-line-end=40><a id="Flask_Shell_39"></a>Flask Shell</h3>
+<p class="has-line-data" data-line-start="40" data-line-end="41">You can play around with the database by running the Flask shell:</p>
+<pre><code class="has-line-data" data-line-start="43" data-line-end="45" class="language-shell">flask shell
 </code></pre>
-<p class="has-line-data" data-line-start="28" data-line-end="29">Invoke the virtual environment:</p>
-<pre><code class="has-line-data" data-line-start="31" data-line-end="33" class="language-shell">source venv/bin/activate
-</code></pre>
-<p class="has-line-data" data-line-start="34" data-line-end="35">Then install the packages needed to run Tasky:</p>
-<pre><code class="has-line-data" data-line-start="37" data-line-end="39" class="language-shell">python -m pip install -r requirements.txt
-</code></pre>
-<p class="has-line-data" data-line-start="40" data-line-end="41">Copy the <code>dotenv-default</code> file to <code>.env</code> and change the <code>SECRET_KEY</code> variable to something unique for your Tasky app.</p>
-<p class="has-line-data" data-line-start="42" data-line-end="43">Finally, run the local Tasky server:</p>
-<pre><code class="has-line-data" data-line-start="45" data-line-end="47" class="language-shell">python manage.py run
-</code></pre>
-<h2 class="code-line" data-line-start=48 data-line-end=49><a id="Other_Things__48"></a>Other Things …</h2>
-<h3 class="code-line" data-line-start=49 data-line-end=50><a id="Other_Databases_49"></a>Other Databases</h3>
-<p class="has-line-data" data-line-start="50" data-line-end="51">By default, Tasky uses the SQLite3 database. Using another database is pretty easy. Do the following steps:</p>
+<p class="has-line-data" data-line-start="46" data-line-end="47">For this to work, the <code>.env</code> file must be in place OR you can set the environmental variables before running the command.</p>
+<p class="has-line-data" data-line-start="48" data-line-end="49">The <code>app</code>, <code>db</code>, and <code>login</code> variables are already setup as are the <code>TaskyUser</code> and <code>TaskyTask</code> classes. This saves a bit of work when working with the Python interpreter.</p>
+<h3 class="code-line" data-line-start=50 data-line-end=51><a id="Google_reCAPTCHA_v2_50"></a>Google reCAPTCHA v2</h3>
+<p class="has-line-data" data-line-start="51" data-line-end="52">Tasky supports using a reCHAPCHA on the signup page. Follow these steps to set it up:</p>
 <ol>
-<li class="has-line-data" data-line-start="52" data-line-end="53">Install the SQLAlchemy version of your database driver.</li>
-<li class="has-line-data" data-line-start="53" data-line-end="55">In the <code>.env</code> file, change the environment variable <code>DATABASE_URL</code> to the new connection URL.</li>
+<li class="has-line-data" data-line-start="53" data-line-end="54">Sign up for the <a href="https://www.google.com/recaptcha/admin">Google reCAPTCHA v2</a>.</li>
+<li class="has-line-data" data-line-start="54" data-line-end="55">Copy the contents of the <code>dotenv-recaptcha</code> file and paste them into the <code>.env</code> file.</li>
+<li class="has-line-data" data-line-start="55" data-line-end="56">Change the <code>RECAPTCHA_PUBLIC_KEY</code> variable to your public key.</li>
+<li class="has-line-data" data-line-start="56" data-line-end="57">Change the <code>RECAPTCHA_PRIVATE_KEY</code> variable to your private key.</li>
+<li class="has-line-data" data-line-start="57" data-line-end="59">If you want to use SSL, change the <code>RECAPTCHA_USE_SSL</code> variable to True.</li>
 </ol>
-<h3 class="code-line" data-line-start=55 data-line-end=56><a id="Flask_Shell_55"></a>Flask Shell</h3>
-<p class="has-line-data" data-line-start="56" data-line-end="57">You can play around with the database by running the Flask shell:</p>
-<pre><code class="has-line-data" data-line-start="59" data-line-end="61" class="language-shell">flask shell
-</code></pre>
-<p class="has-line-data" data-line-start="62" data-line-end="63">For this to work, the <code>.env</code> file must be in place OR you can set the environmental variables before running the command.</p>
-<p class="has-line-data" data-line-start="64" data-line-end="65">The <code>app</code>, <code>db</code>, and <code>login</code> variables are already setup as are the <code>TaskyUser</code> and <code>TaskyTask</code> classes. This saves a bit of work when working with the Python interpreter.</p>
-<h3 class="code-line" data-line-start=66 data-line-end=67><a id="Google_reCAPTCHA_v2_66"></a>Google reCAPTCHA v2</h3>
-<p class="has-line-data" data-line-start="67" data-line-end="68">Tasky supports using a reCHAPCHA on the signup page. Follow these steps to set it up:</p>
-<ol>
-<li class="has-line-data" data-line-start="69" data-line-end="70">Sign up for the <a href="https://www.google.com/recaptcha/admin">Google reCAPTCHA v2</a>.</li>
-<li class="has-line-data" data-line-start="70" data-line-end="71">Copy the contents of the <code>dotenv-recaptcha</code> file and paste them into the <code>.env</code> file.</li>
-<li class="has-line-data" data-line-start="71" data-line-end="72">Change the <code>RECAPTCHA_PUBLIC_KEY</code> variable to your public key.</li>
-<li class="has-line-data" data-line-start="72" data-line-end="73">Change the <code>RECAPTCHA_PRIVATE_KEY</code> variable to your private key.</li>
-<li class="has-line-data" data-line-start="73" data-line-end="75">If you want to use SSL, change the <code>RECAPTCHA_USE_SSL</code> variable to True.</li>
-</ol>
-<h3 class="code-line" data-line-start=75 data-line-end=76><a id="Windows_10_75"></a>Windows 10</h3>
-<p class="has-line-data" data-line-start="76" data-line-end="77">Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian 10.3 (Buster). I was not able to get it to work on Windows 10 because pip would not install the <code>distutils</code> package. It might work using <a href="https://www.cygwin.com/">cygwin</a> but I haven’t tried it.</p>
-<p class="has-line-data" data-line-start="78" data-line-end="79">If you want to try it out on Debian 10, you can get the <a href="https://www.osboxes.org/debian/">image</a> and run it on <a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
+<h3 class="code-line" data-line-start=59 data-line-end=60><a id="Windows_10_59"></a>Windows 10</h3>
+<p class="has-line-data" data-line-start="60" data-line-end="61">Tasky was developed on macOS 10.15. It was tested on macOS 10.15 and Debian 10.3 (Buster). I was not able to get it to work on Windows 10 because pip would not install the <code>distutils</code> package. It might work using <a href="https://www.cygwin.com/">cygwin</a> but I haven’t tried it.</p>
+<p class="has-line-data" data-line-start="62" data-line-end="63">If you want to try it out on Debian 10, you can get the <a href="https://www.osboxes.org/debian/">image</a> and run it on <a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
 </body></html>
