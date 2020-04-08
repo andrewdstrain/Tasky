@@ -13,21 +13,11 @@ login.login_view = 'login'
 
 from server.routes import *
 from server.models import *
-from server.services import *
 
 import sqlalchemy as sa
 
 if not sa.inspect(db.engine).get_table_names():
     db.create_all()
-
-initServices(app)
-
-if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'true':
-    import livereload
-
-    app.debug = True
-    server = livereload.Server(app.wsgi_app)
-    server.serve(port=os.environ['port'], host=os.environ['host'])
 
 
 @app.shell_context_processor
