@@ -6,7 +6,7 @@ from server.models.taskyuser import TaskyUser
 
 class SignupForm(FlaskForm):
     """
-    The sign up Flasky form to add the user to the Tasky database.
+    The sign up Flask form to add the user to the Tasky database.
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
