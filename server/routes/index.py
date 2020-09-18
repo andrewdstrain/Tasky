@@ -87,7 +87,8 @@ def complete_task():
     :return: the Complete Task template
     """
     form = CompleteTaskForm()
-    form.task_id.choices = [(t.id, t.task) for t in TaskyTask.query.filter_by(user_id=current_user.id).filter_by(complete=False)]
+    form.task_id.choices = [(t.id, t.task) for t in
+                            TaskyTask.query.filter_by(user_id=current_user.id).filter_by(complete=False)]
 
     if form.validate_on_submit():
         task = TaskyTask.query.filter_by(id=form.task_id.data).first()
@@ -159,7 +160,7 @@ def signup():
         form = SignupRecaptchaForm()
     else:
         form = SignupForm()
-    
+
     if form.validate_on_submit():
         user = TaskyUser()
         user.username = form.username.data
