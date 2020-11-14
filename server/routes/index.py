@@ -98,7 +98,7 @@ def complete_task():
         flash('Task completed')
         return redirect(url_for('main_menu'))
 
-    return render_template('remove_task.html.j2', title='Remove Task', form=form)
+    return render_template('complete_task.html.j2', title='Complete Task', form=form)
 
 
 @app.route('/list_tasks')
