@@ -21,7 +21,7 @@
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
-    <p>New User? <a href="{{ url_for('signup') }}">Click to Signup!</a></p>
+    <p>New User? <a id="signup" href="{{ url_for('signup') }}">Click to Signup!</a></p>
 
     <hr>
     <div id="description">
@@ -30,9 +30,7 @@
         <em>Programming Foundations Java</em> class at <a href="https://woz-u.com/" target="_blank">Woz U</a>. It's a
         simple example of a CRUD application. It uses <a href="https://python.org/" target="_blank">Python 3</a>
         along with <a href="https://www.fullstackpython.com/flask.html" target="_blank">Flask</a>
-        (using <a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a>) to get everything done. A demo of the app is
-        located on the <a href="https://www.ibm.com/services/cloud" target="_blank">IBM Cloud</a> using <a href="https://www.ibm.com/cloud/db2-on-cloud/" target="_blank">DB2</a>
-        as the database. You can find it <a href="https://taskyapp2.mybluemix.net/" target="_blank">here</a>.</p>
+        (using <a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a>) to get everything done.</p>
         <p>Tasky is just a school project. It doesn't use cookies nor does
         it collect or sell any personal data.</p>
         <p>Enjoy!</p>
